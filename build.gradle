@@ -1,0 +1,39 @@
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group '1'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+application {
+    mainClassName = "Main"
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://repository.springsource.com/maven/bundles/release"
+    }
+    maven {
+        url "http://repository.springsource.com/maven/bundles/external"
+    }
+    maven {
+        url "http://repository.springsource.com/maven/libraries/release"
+    }
+    maven {
+        url "http://repository.springsource.com/maven/libraries/external"
+    }
+}
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+dependencies {
+    implementation 'com.github.lemmy:de.rub.hgi.nds.tgdh:-SNAPSHOT'
+}
