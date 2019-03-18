@@ -1,4 +1,9 @@
+package util;
+
+import crypto.Constants;
 import tgdh.crypto.TgdhKeySpec;
+import tgdh.crypto.TgdhPrivateKey;
+import tgdh.crypto.TgdhPublicKey;
 import tgdh.tree.LeafNode;
 
 import java.io.NotSerializableException;
@@ -19,9 +24,12 @@ public class LeafNodeaddKeys {
         DSAParameterSpec paramSp = new DSAParameterSpec(keyParams.getP(),keyParams.getQ(),keyParams.getG());
         pairgen.initialize(paramSp);
         KeyPair keyPair = pairgen.generateKeyPair();
+
         DSAPrivateKey priKey = (DSAPrivateKey) keyPair.getPrivate();
         DSAPublicKey pubKey = (DSAPublicKey) keyPair.getPublic();
-        leafNode.setKeys(priKey,pubKey);
+
+        leafNode.setKeys(new TgdhPrivateKey(Constants.KEY_PARAMS,priKey.getX()),
+                new TgdhPublicKey(Constants.KEY_PARAMS,pubKey.getY()));
         return leafNode;
     }
 }
