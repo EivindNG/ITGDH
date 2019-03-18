@@ -24,11 +24,13 @@ public class Responder extends AbstractEntity {
         EntityList.getEntityList().put(this,this.id);
     }
 
-    public void joinShareTree() throws
+    public void joinShareTree(int i) throws
             TgdhException
     {
             System.out.println(Treet.getTre().getOwner().getPosition());
-            Treet.getTre().join(this.leafNode, Treet.getTre().getOwner().getPosition());
+            Treet.getTre().join(this.leafNode,i);
+
+            Treet.getTre().setOwner((LeafNode) Treet.getTre().node(i+1));
 
 
 

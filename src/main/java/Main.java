@@ -21,7 +21,7 @@ public class Main {
 
         ArrayList<Responder> responderList= new ArrayList<Responder>();
 
-        for(int i=0; i < 5; i++){
+        for(int i=0; i < 100; i++){
 
             responderList.add(new Responder());
         }
@@ -29,12 +29,11 @@ public class Main {
 
         Tree tre = test.InitializeTree();
         Treet.setTre(tre);
-
         test.ShareKey();
         //expected tree
         System.out.println("tre");
         System.out.println(tre);
-        System.out.println(Treet.getTre().getOwner());
+        System.out.println(Treet.getTre().getSymmetricKey(128));
 
 
 

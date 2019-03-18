@@ -41,35 +41,15 @@ public class Initiator extends AbstractEntity{
     }
 
     public void ShareKey() throws TgdhException {
+        int i=1;
         for (AbstractEntity  entity: EntityList.getEntityList().keySet()) {
 
             if (entity instanceof Responder) {
 
                 Responder responder = (Responder) entity;
-                responder.joinShareTree();
+                responder.joinShareTree(i);
+                i+=1;
             }
-        /*
-        ArrayList<Integer> noderPosisjon = new ArrayList<Integer>();
-        noderPosisjon.add(Treet.getTre().getRoot().getPosition());
-
-        for (AbstractEntity  entity: EntityList.getEntityList().keySet()){
-            int position = noderPosisjon.get(0)+1;
-            System.out.println(position);
-            if (entity instanceof Responder){
-
-                Responder responder = (Responder) entity;
-                LeafNode coordinate = responder.joinShareTree(position);
-                noderPosisjon.add(coordinate.getParent().getLeft().getPosition());
-                noderPosisjon.add(coordinate.getPosition());
-                noderPosisjon.remove(0);
-                System.out.println(noderPosisjon);
-            }
-
-            else {
-                continue;
-            }
-        }
-        */
         }
     }
     public void EncryptFileandKeys(){
